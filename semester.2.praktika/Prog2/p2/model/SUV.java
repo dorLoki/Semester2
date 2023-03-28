@@ -6,5 +6,4 @@ public class SUV extends LandVehicle{
 		super(name, maxDistance);
 		// TODO Auto-generated constructor stub
 	}
-
 }
