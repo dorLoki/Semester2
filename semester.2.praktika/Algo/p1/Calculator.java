@@ -70,11 +70,7 @@ public class Calculator {
 		int b = 0;
 		while (!strAufgabe.equals("")) {
 			switch(strAufgabe.charAt(0)) {
-			case '1':
-			case '2':
-			case '3':
-			case '4':
-			case '5':
+			case '1', '2','3', '4', '5':
 			case '6':
 			case '7':
 			case '8':
