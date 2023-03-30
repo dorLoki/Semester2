@@ -16,7 +16,7 @@ import java.util.Stack;
 public class Calculator {
 
 	// Attribute
-	private String strAufgabe="";
+	private String strAufgabe = "";
 	private int iResult;
 	private String strError;
 
@@ -69,86 +69,83 @@ public class Calculator {
 		int a = 0;
 		int b = 0;
 		while (!strAufgabe.equals("")) {
-			switch(strAufgabe.charAt(0)) {
-			case '1', '2','3', '4', '5':
-			case '6':
-			case '7':
-			case '8':
-			case '9':
-			case '0':
-				stack.push(strAufgabe.substring(0,1));
+			switch (strAufgabe.charAt(0)) {
+			case '1', '2', '3', '4', '5', '6', '7', '8', '9', '0':
+				stack.push(strAufgabe.substring(0, 1));
 				break;
 			case '+':
-				if(stack.isEmpty()) {
+				if (stack.isEmpty()) {
 					strError = "Falsche Zeicheneingabe";
 					return false;
 				}
 				a = Integer.parseInt(stack.pop());
-				if(stack.isEmpty()) {
+				if (stack.isEmpty()) {
 					strError = "Falsche Zeicheneingabe";
 					return false;
 				}
 				b = Integer.parseInt(stack.pop());
-				stack.push(Integer.toString(b+a));
+				stack.push(Integer.toString(b + a));
 				break;
 			case '-':
-				if(stack.isEmpty()) {
+				if (stack.isEmpty()) {
 					strError = "Falsche Zeicheneingabe";
 					return false;
 				}
 				a = Integer.parseInt(stack.pop());
-				if(stack.isEmpty()) {
+				if (stack.isEmpty()) {
 					strError = "Falsche Zeicheneingabe";
 					return false;
 				}
 				b = Integer.parseInt(stack.pop());
-				stack.push(Integer.toString(b-a));
+				stack.push(Integer.toString(b - a));
 				break;
 			case '/':
-				if(stack.isEmpty()) {
+				if (stack.isEmpty()) {
 					strError = "Falsche Zeicheneingabe";
 					return false;
 				}
 				a = Integer.parseInt(stack.pop());
-				if(stack.isEmpty()) {
+				if (stack.isEmpty()) {
 					strError = "Falsche Zeicheneingabe";
 					return false;
 				}
 				b = Integer.parseInt(stack.pop());
-				if(a==0) {
+				if (a == 0) {
 					strError = "Division durch Null";
 					return false;
 				}
-				stack.push(Integer.toString(b/a));
+				stack.push(Integer.toString(b / a));
 				break;
 			case '*':
-				if(stack.isEmpty()) {
+				if (stack.isEmpty()) {
 					strError = "Falsche Zeicheneingabe";
 					return false;
 				}
 				a = Integer.parseInt(stack.pop());
-				if(stack.isEmpty()) {
+				if (stack.isEmpty()) {
 					strError = "Falsche Zeicheneingabe";
 					return false;
 				}
 				b = Integer.parseInt(stack.pop());
-				stack.push(Integer.toString(b*a));
+				stack.push(Integer.toString(b * a));
 				break;
 			case '%':
 				strError = "nicht unterstützter Operator";
 				return false;
-			default: strError = "Ungültiges Zeichen";return false;
+			default:
+				strError = "Ungültiges Zeichen";
+				return false;
 			}
 			strAufgabe = strAufgabe.substring(1, strAufgabe.length());
 		}
-		if(!stack.isEmpty()) {
+		if (!stack.isEmpty()) {
 			iResult = Integer.parseInt(stack.pop());
-			if(!stack.isEmpty()) {
+			if (!stack.isEmpty()) {
 				strError = "Falsche Zeicheneingabe";
 				return false;
 			}
 			return true;
-		}else {
+		} else {
 			strError = "Falsche Zeicheneingabe";
 			return false;
 		}

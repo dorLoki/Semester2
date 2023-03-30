@@ -127,11 +127,6 @@ public class PrimeNumberGenerator {
 		for (int i = 1; i <= 350; i++) {
 			luckyPrimeList.add(i);
 		}
-		/*
-		 * int i = 1;//schritt for (int j = 2; j < luckyList.size();) {
-		 * ListIterator<Integer> listIterator = luckyList.listIterator();
-		 * if(listIterator.hasNext()) { listIterator.next(); } listIterator.remove(); }
-		 */
 		ListIterator<Integer> listIterator = luckyPrimeList.listIterator();
 		while (listIterator.hasNext()) {
 			for (int i = 2; i > 0; i--) {
@@ -149,13 +144,13 @@ public class PrimeNumberGenerator {
 				for (int i = luckyPrimeList.get(step); i > 0; i--) {
 					if (listIterator.hasNext()) {
 						listIterator.next();
-					}else {
+					} else {
 						t = true;
 					}
 				}
-				if(t) {
-					t=!t;
-				}else {
+				if (t) {
+					t = !t;
+				} else {
 					listIterator.remove();
 				}
 			}
