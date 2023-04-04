@@ -18,15 +18,21 @@ public class TreeTesting {
 		}
 
 		public String Preorder() {
-			return root != null ? root.getData()+new Tree(root.left).Preorder()+new Tree(root.right).Preorder():"";
+			return root != null
+					? root.getData() + new Tree(root.getLeft()).Preorder() + new Tree(root.getRight()).Preorder()
+					: "";
 		}
 
 		public String Inorder() {
-			return null;
+			return root != null
+					? new Tree(root.getLeft()).Inorder() + root.getData() + new Tree(root.getRight()).Inorder()
+					: "";
 		}
 
 		public String Postorder() {
-			return null;
+			return root != null
+					? new Tree(root.getLeft()).Postorder() + new Tree(root.getRight()).Postorder() + root.getData()
+					: "";
 		}
 	}
 
@@ -104,7 +110,7 @@ public class TreeTesting {
 		System.out.println("Inorder:   " + tree.Inorder());
 		System.out.println("Postorder: " + tree.Postorder());
 	}
-	
+
 	public static void main(String[] args) {
 		new TreeTesting();
 	}
