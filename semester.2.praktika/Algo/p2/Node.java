@@ -6,7 +6,6 @@ public class Node {
 	private Node right;
 
 	public Node() {
-
 	}
 
 	public Node(String data) {
@@ -44,6 +43,7 @@ public class Node {
 	public String getData() {
 		return data;
 	}
+
 	public boolean isLeaf() {
 		return !hasLeft() && !hasRight();
 	}
