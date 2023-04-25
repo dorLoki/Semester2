@@ -29,6 +29,7 @@ public class TreeTesting {
 		System.out.println("Preorder:  " + tree.Preorder());
 		System.out.println("Inorder:   " + tree.Inorder());
 		System.out.println("Postorder: " + tree.Postorder());
+		System.out.println("LevelOrder: " + tree.Levelorder());
 	}
 
 	public static void main(String[] args) {

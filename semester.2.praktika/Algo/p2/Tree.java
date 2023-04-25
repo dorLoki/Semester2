@@ -1,5 +1,8 @@
 package p2;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Tree {
 	private Node root;
 
@@ -30,5 +33,24 @@ public class Tree {
 		return root != null
 				? new Tree(root.getLeft()).Postorder() + new Tree(root.getRight()).Postorder() + root.getData()
 				: "";
+	}
+
+	public String Levelorder() {
+		String res = "";
+		Queue<Node> q = new LinkedList<Node>();
+		q.add(root);
+		while (!q.isEmpty()) {
+			Node temp = q.poll();
+			if (temp != null) {
+				res += temp.getData();
+				if (temp.getLeft() != null) {
+					q.add(temp.getLeft());
+				}
+				if (temp.getRight() != null) {
+					q.add(temp.getRight());
+				}
+			}
+		}
+		return res;
 	}
 }
