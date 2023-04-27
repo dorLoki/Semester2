@@ -35,7 +35,7 @@ public class GuessAnimal {
 					System.out.print("\nLass mich dazulernen! \n\nWelches Tier sollte ich erraten?  ");
 					Node tempTier = new Node(reader.readLine());
 					System.out.print("Mit welcher Frage hätte ich das Tier erraten können?  ");
-					String data = currNode.getData();
+					String data = (String) currNode.getData();
 					currNode.setData(reader.readLine());
 					currNode.setLeft(tempTier);
 					currNode.setRight(new Node(data));

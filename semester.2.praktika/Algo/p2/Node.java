@@ -1,7 +1,7 @@
 package p2;
 
 public class Node {
-	private String data;
+	private Object data;
 	private Node left;
 	private Node right;
 
@@ -9,6 +9,9 @@ public class Node {
 	}
 
 	public Node(String data) {
+		this.data = data;
+	}
+	public Node(Integer data) {
 		this.data = data;
 	}
 
@@ -40,7 +43,7 @@ public class Node {
 		this.data = data;
 	}
 
-	public String getData() {
+	public Object getData() {
 		return data;
 	}
 
