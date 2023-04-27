@@ -33,8 +33,10 @@ public class VehicleManagement {
 	 * @param v Das hinzufügende Vehikel.
 	 */
 	public void addVehicle(Vehicle v) {
-		if (!vehicleList.contains(v)) {
-			vehicleList.add(v);
+		if (v != null) {
+			if (!vehicleList.contains(v)) {
+				vehicleList.add(v);
+			}
 		}
 	}
 
@@ -59,17 +61,19 @@ public class VehicleManagement {
 	 * @return Ob das Vehikel gebucht werden konnte.
 	 */
 	public boolean bookVehicle(Vehicle v, Customer c) {
-		if (v.isAvailable()) {
-			ArrayList<Vehicle> temp;
-			if (bookedVehicle.containsKey(c.getID())) {
-				temp = bookedVehicle.get(c.getID());
-			} else {
-				temp = new ArrayList<Vehicle>();
+		if (v != null && c != null) {
+			if (vehicleList.contains(v) && v.isAvailable()) {
+				ArrayList<Vehicle> temp;
+				if (bookedVehicle.containsKey(c.getID())) {
+					temp = bookedVehicle.get(c.getID());
+				} else {
+					temp = new ArrayList<Vehicle>();
+				}
+				v.book();
+				temp.add(v);
+				bookedVehicle.put(c.getID(), temp);
+				return true;
 			}
-			v.book();
-			temp.add(v);
-			bookedVehicle.put(c.getID(), temp);
-			return true;
 		}
 		return false;
 	}
