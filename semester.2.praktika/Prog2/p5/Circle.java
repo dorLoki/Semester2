@@ -9,7 +9,7 @@ public class Circle extends Shape {
 
 	public Circle(int radius, Point center) {
 		this.radius = radius;
-		this.center = center;
+		this.center = center.copy();
 	}
 
 	@Override
