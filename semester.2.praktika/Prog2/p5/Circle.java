@@ -29,4 +29,8 @@ public class Circle extends Shape {
 		center.move(x, y);
 		return this;
 	}
+
+	public Point getCenter() {
+		return center;
+	}
 }
