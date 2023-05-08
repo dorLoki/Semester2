@@ -1,5 +1,9 @@
 package net.heydel.view;
 
+import java.util.List;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
@@ -11,6 +15,7 @@ import javafx.scene.control.RadioButton;
 import net.heydel.VehicleBookingMainApp;
 import net.heydel.model.Customer;
 import net.heydel.model.OperatingEnvironment;
+import net.heydel.model.Vehicle;
 import net.heydel.model.VehicleBindingAdapter;
 import net.heydel.model.VehicleManagement;
 
@@ -29,13 +34,13 @@ public class VehicleBookingController {
 	@FXML
 	private TextField searchDistance;
 	@FXML
-	private RadioButton air;
+	private RadioButton air = new RadioButton();
 	@FXML
-	private RadioButton land;
+	private RadioButton land = new RadioButton();
 	@FXML
-	private RadioButton water;
+	private RadioButton water = new RadioButton();
 	@FXML
-	private ToggleGroup a;
+	private ToggleGroup a = new ToggleGroup();
 
 	private VehicleBookingMainApp mainApp;
 
@@ -66,8 +71,11 @@ public class VehicleBookingController {
 		availableColumn.setCellValueFactory(cellData -> cellData.getValue().availableProperty().asObject());
 		environmentColumn.setCellValueFactory(cellData -> cellData.getValue().environmentProperty());
 		air.setUserData(OperatingEnvironment.AIR);
+		air.setToggleGroup(a);
 		land.setUserData(OperatingEnvironment.LAND);
+		land.setToggleGroup(a);
 		water.setUserData(OperatingEnvironment.WATER);
+		water.setToggleGroup(a);
 	}
 
 	/**
@@ -83,14 +91,32 @@ public class VehicleBookingController {
 	}
 
 	@FXML
-	private void handleSearch() {
-		int distance = Integer.parseInt(searchDistance.toString());
-		
+	private void handleSearch() throws NumberFormatException, NullPointerException {
+		int distance;
+		OperatingEnvironment env;
+		try {
+			distance = Integer.parseInt(searchDistance.getText());
+		} catch (NumberFormatException e) {
+			System.out.println(e);
+			distance = Integer.MAX_VALUE;
+		}
+		try {
+			env = (OperatingEnvironment) a.getSelectedToggle().getUserData();
+		} catch (NullPointerException e) {
+			System.out.println(e);
+			env = null;
+		}
+		List<Vehicle> temp = vMan.findMatchingVehicles(distance, env);
+		ObservableList<VehicleBindingAdapter> vehicleDataTemp = FXCollections.observableArrayList();
+		for (Vehicle v : temp) {
+			vehicleDataTemp.add(v.getAdapter());
+		}
+		vehicleData.setItems(vehicleDataTemp);
 	}
 
 	@FXML
 	private void handleShowAll() {
-
+		vehicleData.setItems(this.mainApp.getVehicleData());
 	}
 
 	@FXML

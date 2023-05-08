@@ -12,4 +12,6 @@ public interface Vehicle {
 	void book();
 
 	boolean canOperateOn(OperatingEnvironment environment);
+	
+	public VehicleBindingAdapter getAdapter();
 }

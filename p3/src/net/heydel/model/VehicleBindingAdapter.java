@@ -27,60 +27,49 @@ public class VehicleBindingAdapter {
 	public final IntegerProperty maxDistanceProperty() {
 		return this.maxDistance;
 	}
-	
 
 	public final int getMaxDistance() {
 		return this.maxDistanceProperty().get();
 	}
-	
 
 	public final void setMaxDistance(final int maxDistance) {
 		this.maxDistanceProperty().set(maxDistance);
 		vehicleBase.setMaxDistance(maxDistance);
 	}
-	
 
 	public final BooleanProperty availableProperty() {
 		return this.available;
 	}
-	
 
 	public final boolean isAvailable() {
 		return this.availableProperty().get();
 	}
-	
 
 	public final void setAvailable(final boolean available) {
 		this.availableProperty().set(available);
 		vehicleBase.setAvailable(available);
 	}
-	
 
 	public final StringProperty nameProperty() {
 		return this.name;
 	}
-	
 
 	public final String getName() {
 		return this.nameProperty().get();
 	}
-	
 
 	public final void setName(final String name) {
 		this.nameProperty().set(name);
 		vehicleBase.setName(name);
 	}
-	
 
 	public final ObjectProperty<OperatingEnvironment> environmentProperty() {
 		return this.environment;
 	}
-	
 
 	public final OperatingEnvironment getEnvironment() {
 		return this.environmentProperty().get();
 	}
-	
 
 	public final void setEnvironment(final OperatingEnvironment environment) {
 		this.environmentProperty().set(environment);

@@ -1,13 +1,12 @@
 package net.heydel.model;
 
-
 public abstract class VehicleBase implements Vehicle {
 	private int maxDistance;
 	private boolean available = true;
 	private String name;
 	private OperatingEnvironment environment;
 	private VehicleBindingAdapter adapter;
-
+	@Override
 	public VehicleBindingAdapter getAdapter() {
 		return adapter;
 	}
@@ -19,7 +18,7 @@ public abstract class VehicleBase implements Vehicle {
 	public void notifyAdapter() {
 		adapter.update(this);
 	}
-	
+
 	public VehicleBase(String name, int distance, OperatingEnvironment environment) {
 		super();
 		this.name = name;

@@ -33,7 +33,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="searchDistance" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Suchparameter" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mindestdistanz:" GridPane.rowIndex="1" />
          </children>
@@ -41,12 +41,12 @@
       <HBox>
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gewünschte Umgebung:" wrappingWidth="142.44140625" />
-            <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="58.0" text="Air">
+            <RadioButton fx:id="air" mnemonicParsing="false" prefHeight="17.0" prefWidth="58.0" text="Air">
                <toggleGroup>
                   <ToggleGroup fx:id="a" />
                </toggleGroup></RadioButton>
-            <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="64.0" text="Land" toggleGroup="$a" />
-            <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="54.0" text="Water" toggleGroup="$a" />
+            <RadioButton fx:id="land" mnemonicParsing="false" prefHeight="17.0" prefWidth="64.0" text="Land" toggleGroup="$a" />
+            <RadioButton fx:id="water" mnemonicParsing="false" prefHeight="17.0" prefWidth="54.0" text="Water" toggleGroup="$a" />
          </children>
       </HBox>
       <HBox>
