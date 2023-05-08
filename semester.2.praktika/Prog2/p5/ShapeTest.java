@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.awt.Color;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,45 +11,24 @@ class ShapeTest {
 	private Shape s1;
 	private Shape s2;
 
-	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
-	}
-
 	@BeforeEach
 	void setUp() throws Exception {
 		s1 = new Shape() {
 
 			@Override
 			public Drawable move(int x, int y) {
-				// TODO Auto-generated method stub
 				return null;
 			}
 
 			@Override
 			public void draw() {
-				// TODO Auto-generated method stub
-
-			}
-		};
-		s2 = new Shape() {
-
-			@Override
-			public Drawable move(int x, int y) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public void draw() {
-				// TODO Auto-generated method stub
-
 			}
 		};
 	}
 
 	@Test
 	void testShape() {
-		assertNotEquals(s1, s2);
+		assertNotNull(s1);
 	}
 
 	@Test
@@ -93,15 +71,4 @@ class ShapeTest {
 		s1.setSolid(false);
 		assertFalse(s1.isSolid());
 	}
-
-	@Test
-	void testDraw() {
-		// TODO
-	}
-
-	@Test
-	void testMove() {
-		// TODO
-	}
-
 }

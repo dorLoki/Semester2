@@ -1,6 +1,7 @@
 package p5;
 
 import java.awt.Color;
+import java.util.Objects;
 
 public class Circle extends Shape {
 
@@ -17,6 +18,10 @@ public class Circle extends Shape {
 		getWhiteBoard().removeShape(representation);
 		representation = getWhiteBoard().drawCircle(center.getX(), center.getY(), radius, getColor(), isSolid());
 	}
+	
+	public int getRadius() {
+		return radius;
+	}
 
 	public void draw(Color color, boolean isSolid) {
 		this.setColor(color);
@@ -32,5 +37,25 @@ public class Circle extends Shape {
 
 	public Point getCenter() {
 		return center;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + Objects.hash(center, radius);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Circle other = (Circle) obj;
+		return Objects.equals(center, other.center) && radius == other.radius;
 	}
 }

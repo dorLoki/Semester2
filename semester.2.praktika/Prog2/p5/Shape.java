@@ -1,6 +1,7 @@
 package p5;
 
 import java.awt.Color;
+import java.util.Objects;
 
 import teaching.WhiteBoard;
 
@@ -40,4 +41,22 @@ public abstract class Shape implements Drawable {
 
 	@Override
 	public abstract Drawable move(int x, int y);
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(color, representation, solid);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Shape other = (Shape) obj;
+		return Objects.equals(color, other.color) && Objects.equals(representation, other.representation)
+				&& solid == other.solid;
+	}
 }

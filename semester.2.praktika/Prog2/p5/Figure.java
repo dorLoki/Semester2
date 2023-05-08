@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 public class Figure implements Drawable {
 	private List<Drawable> shapes;
@@ -95,6 +96,23 @@ public class Figure implements Drawable {
 		f.addShape(new Line(new Point(330, 510), new Point(420, 510)));
 
 		return f;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(shapes);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Figure other = (Figure) obj;
+		return Objects.equals(shapes, other.shapes);
 	}
 
 }

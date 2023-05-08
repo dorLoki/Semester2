@@ -2,6 +2,7 @@ package p5;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Objects;
 
 public class Polygon extends Shape {
 	private ArrayList<Point> points;
@@ -13,7 +14,8 @@ public class Polygon extends Shape {
 	@Override
 	public void draw() {
 		getWhiteBoard().removeShape(representation);
-		representation = getWhiteBoard().drawPolygon(points.stream().mapToDouble(p->p.getX()).toArray(), points.stream().mapToDouble(p->p.getY()).toArray());
+		representation = getWhiteBoard().drawPolygon(points.stream().mapToDouble(p -> p.getX()).toArray(),
+				points.stream().mapToDouble(p -> p.getY()).toArray());
 	}
 
 	@Override
@@ -31,5 +33,25 @@ public class Polygon extends Shape {
 
 	public ArrayList<Point> getPoints() {
 		return points;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + Objects.hash(points);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Polygon other = (Polygon) obj;
+		return Objects.equals(points, other.points);
 	}
 }
