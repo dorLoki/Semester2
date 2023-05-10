@@ -77,4 +77,8 @@ public abstract class VehicleBase implements Vehicle {
 		setAvailable(false);
 		notifyAdapter();
 	}
+	@Override
+	public String toString() {
+		return name;
+	}
 }

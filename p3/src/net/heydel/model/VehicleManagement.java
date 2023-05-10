@@ -12,6 +12,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -72,7 +73,12 @@ public class VehicleManagement {
 		List<String> fileArray;
 		fileArray = Files.readAllLines(file);
 		try (BufferedWriter writer = Files.newBufferedWriter(file, charset)) {
-			writer.write(fileArray.+"\n"+"test");
+			for (Iterator<String> iterator = fileArray.iterator(); iterator.hasNext();) {
+				String s = (String) iterator.next();
+				writer.write(s);
+				writer.newLine();
+			}
+			writer.write(customer.toString()+" - " +vehicle.toString());
 		}
 	}
 }

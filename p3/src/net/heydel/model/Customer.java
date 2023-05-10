@@ -36,4 +36,8 @@ public class Customer {
 		System.out.println("Es war keine geignete Buchung m�glich.");
 		return false;
 	}
+	@Override
+	public String toString() {
+		return id+": "+name;
+	}
 }

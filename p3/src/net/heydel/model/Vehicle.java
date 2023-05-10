@@ -14,4 +14,6 @@ public interface Vehicle {
 	boolean canOperateOn(OperatingEnvironment environment);
 	
 	public VehicleBindingAdapter getAdapter();
+	@Override
+	public String toString();
 }
