@@ -1,6 +1,7 @@
 package net.heydel.model;
 
 
+import java.io.IOException;
 import java.util.List;
 
 public class Customer {
@@ -25,7 +26,7 @@ public class Customer {
 		this.management = management;
 	}
 
-	public boolean searchAndBookVehicle(int minRequiredDistance, OperatingEnvironment environment) {
+	public boolean searchAndBookVehicle(int minRequiredDistance, OperatingEnvironment environment) throws IOException {
 		List<Vehicle> vehicles = management.findMatchingVehicles(minRequiredDistance, environment);
 		for (Vehicle v : vehicles) {
 			if (management.bookVehicle(v, this)) {

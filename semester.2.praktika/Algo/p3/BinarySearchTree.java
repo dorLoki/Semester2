@@ -8,20 +8,21 @@ public class BinarySearchTree extends Tree {
 	public BinarySearchTree() {
 		super(null);
 	}
+
 	public BinarySearchTree(Node root) {
 		super(root);
 	}
 
 	private boolean add(int i) {
-		if(root==null) {
+		if (root == null) {
 			root = new Node(i);
 			return true;
 		}
-		if(i<(int)root.getData()) {
+		if (i < (int) root.getData()) {
 			BinarySearchTree temp = new BinarySearchTree(root.getLeft());
 			temp.add(i);
 			root.setLeft(temp.getRoot());
-		}else {
+		} else {
 			BinarySearchTree temp = new BinarySearchTree(root.getRight());
 			temp.add(i);
 			root.setRight(temp.getRoot());
@@ -29,17 +30,38 @@ public class BinarySearchTree extends Tree {
 		return true;
 	}
 
-	private boolean delete(int i) {
-		return false;
-	}
-
 	public static void main(String[] args) {
 		BinarySearchTree tree = new BinarySearchTree();
-		tree.add(100);
 		tree.add(50);
-		tree.add(75);
-		tree.add(150);
+		System.out.println(tree.Levelorder());
+		System.out.println("Inorder:" + tree.Inorder());
+		System.out.println("-----------------");
 		tree.add(125);
-		System.out.println(tree.Preorder());
+		System.out.println(tree.Levelorder());
+		System.out.println("Inorder:" + tree.Inorder());
+		System.out.println("-----------------");
+		tree.add(100);
+		System.out.println(tree.Levelorder());
+		System.out.println("Inorder:" + tree.Inorder());
+		System.out.println("-----------------");
+		tree.add(75);
+		System.out.println(tree.Levelorder());
+		System.out.println("Inorder:" + tree.Inorder());
+		System.out.println("-----------------");
+		tree.add(150);
+		System.out.println(tree.Levelorder());
+		System.out.println("Inorder:" + tree.Inorder());
+		System.out.println("-----------------");
+		tree.add(151);
+		System.out.println(tree.Levelorder());
+		System.out.println("Inorder:" + tree.Inorder());
+		System.out.println("-----------------");
+		tree.add(101);
+		System.out.println(tree.Levelorder());
+		System.out.println("Inorder:" + tree.Inorder());
+		System.out.println("-----------------");
+		tree.add(149);
+		System.out.println(tree.Levelorder());
+		System.out.println("Inorder:" + tree.Inorder());
 	}
 }

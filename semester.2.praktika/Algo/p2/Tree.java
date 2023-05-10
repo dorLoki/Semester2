@@ -33,18 +33,24 @@ public class Tree {
 
 	public String Postorder() {
 		return root != null
-				? new Tree(root.getLeft()).Postorder() + new Tree(root.getRight()).Postorder() + " "+root.getData()+" "
+				? new Tree(root.getLeft()).Postorder() + new Tree(root.getRight()).Postorder() + " " + root.getData()
+						+ " "
 				: "";
 	}
 
 	public String Levelorder() {
 		String res = "";
+		int n = 0;
 		Queue<Node> q = new LinkedList<Node>();
 		q.add(root);
 		while (!q.isEmpty()) {
+			if ((n & (n - 1)) == 0 && n != 0) {
+				res += '\n';
+			}
+			n++;
 			Node temp = q.poll();
 			if (temp != null) {
-				res += temp.getData();
+				res += " " + temp.getData();
 				if (temp.getLeft() != null) {
 					q.add(temp.getLeft());
 				}

@@ -1,5 +1,6 @@
 package net.heydel.view;
 
+import java.io.IOException;
 import java.util.List;
 
 import javafx.collections.FXCollections;
@@ -123,14 +124,23 @@ public class VehicleBookingController {
 	private void handleBook() {
 		VehicleBindingAdapter v = vehicleData.getSelectionModel().selectedItemProperty().getValue();
 		if (v != null) {
-			if (!vMan.bookVehicle(v.getVehicleBase(), customer)) {
+			try {
+				if (!vMan.bookVehicle(v.getVehicleBase(), customer)) {
+					Alert alert = new Alert(AlertType.ERROR);
+					alert.setTitle("Invalid Vehicle");
+					alert.setHeaderText("The vehicle is already booked.");
+					alert.setContentText("Please select another vehicle.");
+					alert.showAndWait();
+				} else {
+					vehicleData.refresh();
+				}
+			} catch (IOException e) {
 				Alert alert = new Alert(AlertType.ERROR);
-				alert.setTitle("Invalid Vehicle");
-				alert.setHeaderText("The vehicle is already booked.");
-				alert.setContentText("Please select another vehicle.");
+				alert.setTitle("Fehler beim logen der Buchung");
+				alert.setHeaderText("Fehler beim logen der Buchung.\tSiehe:");
+				alert.setContentText(e.getMessage());
 				alert.showAndWait();
-			} else {
-				vehicleData.refresh();
+				e.printStackTrace();
 			}
 		} else {
 			// Show the error message.
