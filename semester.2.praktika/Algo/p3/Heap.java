@@ -7,7 +7,7 @@ import java.util.Iterator;
 import p2.Tree;
 
 public class Heap extends Tree {
-	private int[] keys = new int[100];
+	private int[] keys = new int[200];
 	private int p = 1;
 	private boolean minTree;
 
@@ -51,11 +51,11 @@ public class Heap extends Tree {
 	}
 
 	private boolean assureHeapRoot() {
+		// TODO BUG Mintree, da nil element = 0?
 		int i = 1;
 		int next = -1;
-	
-		
-		if (!minTree) {
+
+		if (!minTree) {// Maxtree
 			next = keys[i * 2] < keys[i * 2 + 1] ? i * 2 + 1 : i * 2;
 			while (keys[next] != 0) {
 				if (keys[i] < keys[next]) {
@@ -68,7 +68,7 @@ public class Heap extends Tree {
 					return true;
 				}
 			}
-		} else {
+		} else { // Mintree
 			next = keys[i * 2] > keys[i * 2 + 1] ? i * 2 + 1 : i * 2;
 			while (keys[next] != 0) {
 				if (keys[i] > keys[next]) {
@@ -82,29 +82,30 @@ public class Heap extends Tree {
 				}
 			}
 		}
-
-		do {
-			if(!minTree) {
-				next = keys[i * 2] < keys[i * 2 + 1] ? i * 2 + 1 : i * 2;
-			}else {
-				next = keys[i * 2] > keys[i * 2 + 1] ? i * 2 + 1 : i * 2;
-			}
-			if(!minTree && keys[i] < keys[next] || minTree && keys[i] > keys[next]) {
-				int temp = keys[next];
-				keys[next] = keys[i];
-				keys[i] = temp;
-				i = next;
-			}else {
-				return true;
-			}
-		} while (keys[next] != 0);
+//		do {
+//			if(!minTree) {
+//				next = keys[i * 2] < keys[i * 2 + 1] ? i * 2 + 1 : i * 2;
+//			}else {
+//				next = keys[i * 2] > keys[i * 2 + 1] ? i * 2 + 1 : i * 2;
+//			}
+//			if(!minTree && keys[i] < keys[next] || minTree && keys[i] > keys[next]) {
+//				int temp = keys[next];
+//				keys[next] = keys[i];
+//				keys[i] = temp;
+//				i = next;
+//			}else {
+//				return true;
+//			}
+//		} while (keys[next] != 0);
 		return false;
 	}
 
 	public static void main(String[] args) {
-		Heap tree = new Heap(false);
+		Heap tree = new Heap(true);
 		tree.levelorder();
 		ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(50, 125, 100, 75, 150, 151, 101, 149));
+		// ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(150, 101, 151,
+		// 149, 75, 100, 125, 50));
 		for (Iterator<Integer> iterator = list.iterator(); iterator.hasNext();) {
 			int i = (Integer) iterator.next();
 			tree.add(i);

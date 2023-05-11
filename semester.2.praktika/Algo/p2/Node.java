@@ -56,16 +56,14 @@ public class Node {
 	}
 
 	public int getChildren() {
+		int res = 0;
 		if (hasRight()) {
-			if (hasLeft()) {
-				return 2;
-			}
-			return 1;
+			res++;
 		}
 		if (hasLeft()) {
-			return 1;
+			res++;
 		}
-		return 0;
+		return res;
 	}
 
 	public int findMinVal() {
