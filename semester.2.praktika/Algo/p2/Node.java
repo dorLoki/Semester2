@@ -68,16 +68,19 @@ public class Node {
 		return 0;
 	}
 
-	public int findMin() {
+	public int findMinVal() {
 		int t = (int)data;
 		if(hasLeft()) {
-			int tl = left.findMin();
+			int tl = left.findMinVal();
 			t = tl<t?tl:t;
 		}
 		if(hasRight()) {
-			int tr = right.findMin();
+			int tr = right.findMinVal();
 			t = tr<t?tr:t;
 		}
 		return t;
+	}
+	public Node findMin() {
+		return null;
 	}
 }

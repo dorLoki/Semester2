@@ -44,7 +44,7 @@ public class Tree {
 		Queue<Node> q = new LinkedList<Node>();
 		q.add(root);
 		while (!q.isEmpty()) {
-			if ((n & (n - 1)) == 0 && n != 0) {
+			if (((n+1) & n) == 0 && n != 0) {
 				res += '\n';
 			}
 			n++;

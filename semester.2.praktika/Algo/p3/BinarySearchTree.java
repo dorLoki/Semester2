@@ -1,5 +1,9 @@
 package p3;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+
 import p2.Node;
 import p2.Tree;
 
@@ -30,38 +34,54 @@ public class BinarySearchTree extends Tree {
 		return true;
 	}
 
+	public boolean delete(int val) throws Exception {
+		Node node = root;
+		while (node != null) {
+			int search = (int) node.getData();
+			if (search == val) {
+				return del(node);
+			}
+			if (search < val) {
+				node = node.getLeft();
+			} else {
+
+				node = node.getRight();
+			}
+		}
+		return false;
+	}
+
+	private boolean del(Node node) throws Exception {
+		switch (node.getChildren()) {
+		case 0:
+			node = null;
+			break;
+		case 1:
+			if (node.hasLeft()) {
+				node = node.getLeft();
+			} else {
+				node = node.getRight();
+			}
+			break;
+		case 2:
+			Node smallest = node.findMin();
+			break;
+		default:
+			throw new Exception("error while deleting");
+		}
+		return true;
+	}
+
 	public static void main(String[] args) {
+		ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(50, 125, 100, 75, 150, 151, 101, 149));
 		BinarySearchTree tree = new BinarySearchTree();
-		tree.add(50);
-		System.out.println(tree.Levelorder());
-		System.out.println("Inorder:" + tree.Inorder());
-		System.out.println("-----------------");
-		tree.add(125);
-		System.out.println(tree.Levelorder());
-		System.out.println("Inorder:" + tree.Inorder());
-		System.out.println("-----------------");
-		tree.add(100);
-		System.out.println(tree.Levelorder());
-		System.out.println("Inorder:" + tree.Inorder());
-		System.out.println("-----------------");
-		tree.add(75);
-		System.out.println(tree.Levelorder());
-		System.out.println("Inorder:" + tree.Inorder());
-		System.out.println("-----------------");
-		tree.add(150);
-		System.out.println(tree.Levelorder());
-		System.out.println("Inorder:" + tree.Inorder());
-		System.out.println("-----------------");
-		tree.add(151);
-		System.out.println(tree.Levelorder());
-		System.out.println("Inorder:" + tree.Inorder());
-		System.out.println("-----------------");
-		tree.add(101);
-		System.out.println(tree.Levelorder());
-		System.out.println("Inorder:" + tree.Inorder());
-		System.out.println("-----------------");
-		tree.add(149);
-		System.out.println(tree.Levelorder());
-		System.out.println("Inorder:" + tree.Inorder());
+		for (Iterator<Integer> iterator = list.iterator(); iterator.hasNext();) {
+			int i = (Integer) iterator.next();
+			tree.add(i);
+			System.out.println("Inorder:" + tree.Inorder());
+			System.out.println("Preorder:" + tree.Preorder());
+			System.out.println("Postorder:" + tree.Postorder());
+			System.out.println("-----------------");
+		}
 	}
 }
