@@ -1,6 +1,5 @@
 package net.heydel.model;
 
-
 import java.io.IOException;
 import java.util.List;
 
@@ -33,7 +32,7 @@ public class Customer {
 				return true;
 			}
 		}
-		System.out.println("Es war keine geignete Buchung m�glich.");
+		System.out.println("Es war keine geeignete Buchung möglich.");
 		return false;
 	}
 	@Override

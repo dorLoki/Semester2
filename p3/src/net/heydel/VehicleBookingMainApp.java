@@ -1,8 +1,6 @@
 package net.heydel;
 
 import java.io.IOException;
-import java.util.Iterator;
-
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,8 +9,6 @@ import net.heydel.model.Customer;
 import net.heydel.model.Jetski;
 import net.heydel.model.Plane;
 import net.heydel.model.SUV;
-import net.heydel.model.Vehicle;
-import net.heydel.model.VehicleBase;
 import net.heydel.model.VehicleBindingAdapter;
 import net.heydel.model.VehicleManagement;
 import net.heydel.view.VehicleBookingController;
@@ -87,9 +83,9 @@ public class VehicleBookingMainApp extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			VehicleBookingController controller = loader.getController();
-			controller.setMainApp(this);
 			controller.setCustomer(customer);
 			controller.setVMan(vMan);
+			controller.setMainApp(this);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
