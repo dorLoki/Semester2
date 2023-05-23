@@ -5,15 +5,18 @@ public class TryCatchTest {
 	public TryCatchTest() {
 		// TODO Auto-generated constructor stub
 	}
+
 	public void test(int i) {
-		if(i<10) {
+		if (i < 10) {
 			throw new RuntimeException("Die exception wird im gui behandelt!");
-		}else {
-			//mach etwas
+		} else {
+			// mach etwas
 		}
 	}
+
 	public void call_test() {
-			test(9);
+		test(20);// safe
+		test(9);// unchecked exception
 	}
 
 	public static void main(String[] args) {
