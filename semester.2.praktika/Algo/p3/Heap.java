@@ -14,6 +14,11 @@ public class Heap extends Tree {
 	public Heap(boolean minTree) {
 		super(null);
 		this.minTree = minTree;
+		if (minTree) {
+			Arrays.fill(keys, Integer.MAX_VALUE);
+		} else {
+			Arrays.fill(keys, Integer.MIN_VALUE);
+		}
 	}
 
 	public boolean add(int i) {
@@ -43,7 +48,11 @@ public class Heap extends Tree {
 			p--;
 			res = keys[1];
 			keys[1] = keys[p];
-			keys[p] = 0;
+			if (minTree) {
+				keys[p] = Integer.MAX_VALUE;
+			} else {
+				keys[p] = Integer.MIN_VALUE;
+			}
 			assureHeapRoot();
 			return res;
 		}
@@ -51,13 +60,11 @@ public class Heap extends Tree {
 	}
 
 	private boolean assureHeapRoot() {
-		// TODO BUG Mintree, da nil element = 0?
 		int i = 1;
 		int next = -1;
-
-		if (!minTree) {// Maxtree
+		if (!minTree) {
 			next = keys[i * 2] < keys[i * 2 + 1] ? i * 2 + 1 : i * 2;
-			while (keys[next] != 0) {
+			while (keys[next] != Integer.MIN_VALUE) {
 				if (keys[i] < keys[next]) {
 					int temp = keys[next];
 					keys[next] = keys[i];
@@ -68,9 +75,9 @@ public class Heap extends Tree {
 					return true;
 				}
 			}
-		} else { // Mintree
+		} else {
 			next = keys[i * 2] > keys[i * 2 + 1] ? i * 2 + 1 : i * 2;
-			while (keys[next] != 0) {
+			while (keys[next] != Integer.MAX_VALUE) {
 				if (keys[i] > keys[next]) {
 					int temp = keys[next];
 					keys[next] = keys[i];
@@ -82,26 +89,11 @@ public class Heap extends Tree {
 				}
 			}
 		}
-//		do {
-//			if(!minTree) {
-//				next = keys[i * 2] < keys[i * 2 + 1] ? i * 2 + 1 : i * 2;
-//			}else {
-//				next = keys[i * 2] > keys[i * 2 + 1] ? i * 2 + 1 : i * 2;
-//			}
-//			if(!minTree && keys[i] < keys[next] || minTree && keys[i] > keys[next]) {
-//				int temp = keys[next];
-//				keys[next] = keys[i];
-//				keys[i] = temp;
-//				i = next;
-//			}else {
-//				return true;
-//			}
-//		} while (keys[next] != 0);
 		return false;
 	}
 
 	public static void main(String[] args) {
-		Heap tree = new Heap(true);
+		Heap tree = new Heap(false);
 		tree.levelorder();
 		ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(50, 125, 100, 75, 150, 151, 101, 149));
 		// ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(150, 101, 151,
@@ -123,7 +115,7 @@ public class Heap extends Tree {
 			System.out.println("\b");
 		}
 		for (int i = 1; i < keys.length; i++) {
-			if (keys[i] != 0) {
+			if (keys[i] != Integer.MAX_VALUE && keys[i] != Integer.MIN_VALUE) {
 				System.out.print(keys[i] + " ");
 			} else {
 				System.out.print("\n\n");
@@ -135,5 +127,9 @@ public class Heap extends Tree {
 		}
 		System.out.print("\n" + "n:" + p + "\n");
 		return true;
+	}
+	
+	public void toTree() {
+		
 	}
 }
