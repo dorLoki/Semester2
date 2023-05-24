@@ -11,6 +11,8 @@ public class Node {
 	public Node(String data) {
 		this.data = data;
 	}
+	public void test() {
+	}
 
 	public Node(Integer data) {
 		this.data = data;
