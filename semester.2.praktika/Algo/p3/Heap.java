@@ -107,7 +107,7 @@ public class Heap extends Tree {
 	}
 
 	public static void main(String[] args) {
-		Heap tree = new Heap(false);
+		Heap tree = new Heap(true);
 		tree.levelorder();
 		ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(50, 125, 100, 75, 150, 151, 101, 149));
 		// ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(150, 101, 151,
