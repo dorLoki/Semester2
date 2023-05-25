@@ -51,6 +51,25 @@ class BinarySearchTreeTests {
 		assertEquals(25, tree.getRoot().getLeft().getData());
 		assertEquals(75, tree.getRoot().getRight().getData());
 	}
+	
+	@Test
+	void testInsert300(){
+		BinarySearchTree tree = new BinarySearchTree();
+		for (int i = 0; i < 300; i++) {
+			tree.insert(i);
+		}
+	}
+	
+	@Test
+	void testDelete300() {
+		BinarySearchTree tree = new BinarySearchTree();
+		for (int i = 0; i < 300; i++) {
+			tree.insert(i);
+		}
+		for (int i = 300; i > 0; i--) {
+			tree.delete(i);
+		}
+	}
 
 	@Test
 	void testDelete_empty() {

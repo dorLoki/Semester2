@@ -7,7 +7,7 @@ import java.util.Iterator;
 import p2.Tree;
 
 public class Heap extends Tree {
-	private int[] keys = new int[200];
+	private int[] keys = new int[2];
 	private int p = 1;
 	private boolean minTree;
 
@@ -21,8 +21,20 @@ public class Heap extends Tree {
 		}
 	}
 
-	public boolean add(int i) {
-		keys[p] = i;// TODO p>keys.length -> double keys array
+	public boolean insert(int i) {
+		if (keys.length <= p) {
+			int[] temp = new int[p * 2];
+			if (minTree) {
+				Arrays.fill(temp, Integer.MAX_VALUE);
+			} else {
+				Arrays.fill(temp, Integer.MIN_VALUE);
+			}
+			for (int j = 0; j < p; j++) {
+				temp[j] = keys[j];
+			}
+			keys = temp;
+		}
+		keys[p] = i;
 		assureHeap(p);
 		p++;
 		return true;
@@ -30,14 +42,16 @@ public class Heap extends Tree {
 
 	private boolean assureHeap(int pos) {
 		int parent = pos / 2;
-		if (parent == 0) {
-			return true;
-		}
-		if (minTree && keys[parent] > keys[pos] || !minTree && keys[parent] < keys[pos]) {
-			int temp = keys[parent];
-			keys[parent] = keys[pos];
-			keys[pos] = temp;
-			return assureHeap(parent);
+		while (parent != 0) {
+			if (minTree && keys[parent] > keys[pos] || !minTree && keys[parent] < keys[pos]) {
+				int temp = keys[parent];
+				keys[parent] = keys[pos];
+				keys[pos] = temp;
+				pos = parent;
+				parent = parent / 2;
+			} else {
+				return true;
+			}
 		}
 		return true;
 	}
@@ -100,8 +114,8 @@ public class Heap extends Tree {
 		// 149, 75, 100, 125, 50));
 		for (Iterator<Integer> iterator = list.iterator(); iterator.hasNext();) {
 			int i = (Integer) iterator.next();
-			tree.add(i);
 			System.out.println("Insert " + i + ":");
+			tree.insert(i);
 			tree.levelorder();
 		}
 		for (int i = 0; i < 10; i++) {
@@ -125,11 +139,14 @@ public class Heap extends Tree {
 				System.out.println("");
 			}
 		}
-		System.out.print("\n" + "n:" + p + "\n");
+		System.out.println("");
 		return true;
 	}
-	
+
 	public void toTree() {
-		
+		int i = 1;
+		while (keys[i] != Integer.MAX_VALUE && keys[i] != Integer.MAX_VALUE) {
+
+		}
 	}
 }
