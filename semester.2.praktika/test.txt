@@ -1,0 +1,178 @@
+----Vergleiche-----
+BubbleSort: 
+1000 Elemente:
+Vergleiche:499500 Aktionen:251259 Zeit:4ms
+Vergleiche:499500 Aktionen:246953 Zeit:1ms
+Vergleiche:499500 Aktionen:243742 Zeit:3ms
+10000 Elemente:
+Vergleiche:49995000 Aktionen:24743939 Zeit:88ms
+Vergleiche:49995000 Aktionen:24927578 Zeit:89ms
+Vergleiche:49995000 Aktionen:24935636 Zeit:89ms
+100000 Elemente:
+Vergleiche:4999950000 Aktionen:2492698514 Zeit:10800ms
+Vergleiche:4999950000 Aktionen:2506614854 Zeit:10786ms
+Vergleiche:4999950000 Aktionen:2501731751 Zeit:10752ms
+Vergleiche:499999500000 Aktionen:250079228656 Zeit:1085158ms
+Vergleiche:499999500000 Aktionen:249936945307 Zeit:1092825ms
+Vergleiche:499999500000 Aktionen:249897460625 Zeit:1086015ms
+SelectionSort: 
+1000 Elemente:
+Vergleiche:499500 Aktionen:999 Zeit:3ms
+Vergleiche:499500 Aktionen:999 Zeit:2ms
+Vergleiche:499500 Aktionen:999 Zeit:2ms
+10000 Elemente:
+Vergleiche:49995000 Aktionen:9999 Zeit:26ms
+Vergleiche:49995000 Aktionen:9999 Zeit:21ms
+Vergleiche:49995000 Aktionen:9999 Zeit:22ms
+100000 Elemente:
+Vergleiche:4999950000 Aktionen:99999 Zeit:2148ms
+Vergleiche:4999950000 Aktionen:99999 Zeit:2142ms
+Vergleiche:4999950000 Aktionen:99999 Zeit:2147ms
+1000000 Elemente:
+Vergleiche:499999500000 Aktionen:999999 Zeit:215852ms
+Vergleiche:499999500000 Aktionen:999999 Zeit:215937ms
+Vergleiche:499999500000 Aktionen:999999 Zeit:215744ms
+Vergleiche:256220 Aktionen:256228 Zeit:2ms
+Vergleiche:244921 Aktionen:244926 Zeit:1ms
+Vergleiche:246575 Aktionen:246581 Zeit:2ms
+10000 Elemente:
+Vergleiche:24968339 Aktionen:24968348 Zeit:28ms
+Vergleiche:24990027 Aktionen:24990042 Zeit:6ms
+Vergleiche:25137387 Aktionen:25137395 Zeit:6ms
+100000 Elemente:
+Vergleiche:2497358552 Aktionen:2497358567 Zeit:706ms
+Vergleiche:2494765953 Aktionen:2494765968 Zeit:684ms
+Vergleiche:2496724380 Aktionen:2496724393 Zeit:689ms
+1000000 Elemente:
+Vergleiche:250249427361 Aktionen:250249427372 Zeit:74682ms
+Vergleiche:250034488300 Aktionen:250034488313 Zeit:74762ms
+Vergleiche:249847124151 Aktionen:249847124166 Zeit:74252ms
+1000 Elemente:
+Vergleiche:0 Aktionen:0 Zeit:99648ms
+Vergleiche:0 Aktionen:0 Zeit:99934ms
+Vergleiche:0 Aktionen:0 Zeit:99942ms
+10000 Elemente:
+Vergleiche:0 Aktionen:0 Zeit:1000187ms
+Vergleiche:0 Aktionen:0 Zeit:1000389ms
+Vergleiche:0 Aktionen:0 Zeit:998966ms
+
+----Vergleiche-----
+BubbleSort: 
+1000 Elemente:
+
+Vergleiche:499500 Aktionen:251259 Zeit:4ms
+
+Vergleiche:499500 Aktionen:246953 Zeit:1ms
+
+Vergleiche:499500 Aktionen:243742 Zeit:3ms
+
+10000 Elemente:
+
+Vergleiche:49995000 Aktionen:24743939 Zeit:88ms
+
+Vergleiche:49995000 Aktionen:24927578 Zeit:89ms
+
+Vergleiche:49995000 Aktionen:24935636 Zeit:89ms
+
+100000 Elemente:
+
+Vergleiche:4999950000 Aktionen:2492698514 Zeit:10800ms
+
+Vergleiche:4999950000 Aktionen:2506614854 Zeit:10786ms
+
+Vergleiche:4999950000 Aktionen:2501731751 Zeit:10752ms
+
+1000000 Elemente:
+
+Vergleiche:499999500000 Aktionen:250079228656 Zeit:1085158ms
+
+Vergleiche:499999500000 Aktionen:249936945307 Zeit:1092825ms
+
+Vergleiche:499999500000 Aktionen:249897460625 Zeit:1086015ms
+
+SelectionSort: 
+1000 Elemente:
+
+Vergleiche:499500 Aktionen:999 Zeit:3ms
+
+Vergleiche:499500 Aktionen:999 Zeit:2ms
+
+Vergleiche:499500 Aktionen:999 Zeit:2ms
+
+10000 Elemente:
+
+Vergleiche:49995000 Aktionen:9999 Zeit:26ms
+
+Vergleiche:49995000 Aktionen:9999 Zeit:21ms
+
+Vergleiche:49995000 Aktionen:9999 Zeit:22ms
+
+100000 Elemente:
+
+Vergleiche:4999950000 Aktionen:99999 Zeit:2148ms
+
+Vergleiche:4999950000 Aktionen:99999 Zeit:2142ms
+
+Vergleiche:4999950000 Aktionen:99999 Zeit:2147ms
+
+1000000 Elemente:
+
+Vergleiche:499999500000 Aktionen:999999 Zeit:215852ms
+
+Vergleiche:499999500000 Aktionen:999999 Zeit:215937ms
+
+Vergleiche:499999500000 Aktionen:999999 Zeit:215744ms
+
+InsertionSort: 
+1000 Elemente:
+
+Vergleiche:256220 Aktionen:256228 Zeit:2ms
+
+Vergleiche:244921 Aktionen:244926 Zeit:1ms
+
+Vergleiche:246575 Aktionen:246581 Zeit:2ms
+
+10000 Elemente:
+
+Vergleiche:24968339 Aktionen:24968348 Zeit:28ms
+
+Vergleiche:24990027 Aktionen:24990042 Zeit:6ms
+
+Vergleiche:25137387 Aktionen:25137395 Zeit:6ms
+
+100000 Elemente:
+
+Vergleiche:2497358552 Aktionen:2497358567 Zeit:706ms
+
+Vergleiche:2494765953 Aktionen:2494765968 Zeit:684ms
+
+Vergleiche:2496724380 Aktionen:2496724393 Zeit:689ms
+
+1000000 Elemente:
+
+Vergleiche:250249427361 Aktionen:250249427372 Zeit:74682ms
+
+Vergleiche:250034488300 Aktionen:250034488313 Zeit:74762ms
+
+Vergleiche:249847124151 Aktionen:249847124166 Zeit:74252ms
+
+SleepSort: 
+1000 Elemente:
+
+Vergleiche:0 Aktionen:0 Zeit:99648ms
+
+Vergleiche:0 Aktionen:0 Zeit:99934ms
+
+Vergleiche:0 Aktionen:0 Zeit:99942ms
+
+10000 Elemente:
+
+Vergleiche:0 Aktionen:0 Zeit:1000187ms
+
+Vergleiche:0 Aktionen:0 Zeit:1000389ms
+
+Vergleiche:0 Aktionen:0 Zeit:998966ms
+
+100000 Elemente:
+
+Vergleiche:0 Aktionen:0 Zeit:10162291ms
