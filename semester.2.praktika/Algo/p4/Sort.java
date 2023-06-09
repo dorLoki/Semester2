@@ -10,12 +10,21 @@ public class Sort {
 
 	public Sort() {
 		// aufgabe4_1();
-		try {
-			aufgabe4_2();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+//		try {
+//			aufgabe4_2();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		int[] array = getRandomArray(1000);
+		sleepSort(array);
+		if(!checkSort(testArray)) {
+			System.out.println("failed");
+		}else {
+			System.out.println("succes");
 		}
+		//printArray(array);
+		//printArray(testArray);
 
 	}
 
@@ -169,6 +178,7 @@ public class Sort {
 		}
 		bf.flush();
 		System.out.println("\nInsertionSort: \n1000 Elemente:");
+		bf.append("\nInsertionSort: \n1000 Elemente:");
 		for (int i = 0; i < 3; i++) {
 			int[] array = getRandomArray(1000);
 			long startTime = System.currentTimeMillis();
@@ -220,7 +230,7 @@ public class Sort {
 		}
 		bf.flush();
 		System.out.println("\nSleepSort: \n1000 Elemente:");
-		bf.append("\n1000 Elemente:");
+		bf.append("\nSleepSort: \n1000 Elemente:");
 		for (int i = 0; i < 3; i++) {
 			int[] array = getRandomArray(1000);
 			long startTime = System.currentTimeMillis();
@@ -343,19 +353,21 @@ public class Sort {
 		return returnValues;
 	}
 
-	public long[] sleepSort(int[] arr) {
+	public  long[] sleepSort(int[] arr) {
 		pointer = 0;
 		testArray = new int[arr.length];
 		long cntCompare = 0;
 		long cntAction = 0;
+//		long t = System.nanoTime();
 
 		ArrayList<Thread> threads = new ArrayList<Thread>();
 		for (int i = 0; i < arr.length; i++) {
 			final int j = i;
 			Thread thread = new Thread(() -> {
 				try {
-					Thread.sleep(arr[j] * 100); // eventuell höher stellen
+					Thread.sleep(arr[j] * 100); // eventuell höher stellen - 60ms für 1000 Threads starten
 					test(arr[j]);
+					System.out.println(arr[j]);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -364,6 +376,8 @@ public class Sort {
 			threads.add(thread);
 			thread.start();
 		}
+//		long t2 = System.nanoTime();
+//		System.out.println(t2-t);
 		for (Thread thread : threads) {
 			try {
 				thread.join();
@@ -371,7 +385,6 @@ public class Sort {
 				e.printStackTrace();
 			}
 		}
-
 		long returnValues[] = { cntCompare, cntAction };
 		return returnValues;
 	}
@@ -379,10 +392,10 @@ public class Sort {
 	private int pointer = 0;
 	private int[] testArray;
 
-	public void test(int i) {
+	public  void test(int i) {
 		testArray[pointer] = i;
 		pointer++;
-	}
+	}synchronized
 
 	public boolean checkSort(int[] arr) {
 		for (int i = 0; i < arr.length - 1; i++) {
