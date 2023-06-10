@@ -392,10 +392,10 @@ public class Sort {
 	private int pointer = 0;
 	private int[] testArray;
 
-	public  void test(int i) {
+	public synchronized void test(int i) {
 		testArray[pointer] = i;
 		pointer++;
-	}synchronized
+	}
 
 	public boolean checkSort(int[] arr) {
 		for (int i = 0; i < arr.length - 1; i++) {
